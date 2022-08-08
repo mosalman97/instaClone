@@ -4,6 +4,6 @@ import {
 } from 'react-native-responsive-screen';
 
 export const SIZES = {
-    wp:wp,
-    hp:hp
+    wp: wp,
+    hp: hp
 }
