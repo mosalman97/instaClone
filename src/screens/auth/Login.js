@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
   },
   topcontainer: {
     alignItems: 'center',
+    // marginVertical: 150,
   },
   instagramlogo: {},
   profile: {},
@@ -79,8 +80,12 @@ const styles = StyleSheet.create({
   bottomcontainer: {
     borderTopWidth: 1,
     borderColor: '#FFFFFF',
+    // flex: 1,
+  },
+  switchtext: {
+    color: 'dodgerblue',
   },
   signupcontainer: {
-    alignItems:"center"
+    alignItems: 'center',
   },
 });
