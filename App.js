@@ -6,7 +6,7 @@ import ProfileLogin from './src/screens/auth/ProfileLogin';
 const App = () => {
   return (
     <View>
-      {/* <ProfileLogin/> */}
+      {/* <ProfileLogin /> */}
       <Login />
     </View>
   );

@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 //Packages

@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
+  ScrollView,
 } from 'react-native';
 
 //Constants
@@ -42,32 +43,64 @@ export default function Login() {
               placeholderTextColor="#8b8b8b"
             />
           </View>
-          <TouchableOpacity style={{marginBottom: SIZES.hp('4%')}}>
+          <TouchableOpacity
+            style={{marginBottom: SIZES.hp('4%')}}
+            activeOpacity={0.8}>
             <Text
               style={{
                 color: '#3797EF',
                 alignSelf: 'flex-end',
-                marginRight: 10,
               }}>
               Forgot password?
             </Text>
           </TouchableOpacity>
           <View style={{alignSelf: 'center'}}>
-            <TouchableOpacity style={styles.loginbutton}>
+            <TouchableOpacity style={styles.loginbutton} activeOpacity={0.7}>
               <Text style={styles.logintext}>Log in</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.facebook}>
             <Image source={require('../../assets/images/fb.png')} />
-            <TouchableOpacity style={{marginLeft: 12}}>
+            <TouchableOpacity style={{marginLeft: 12}} activeOpacity={0.8}>
               <Text style={{color: '#3797EF', fontSize: SIZES.wp('4%')}}>
                 Log in with Facebook
               </Text>
             </TouchableOpacity>
           </View>
-          {/* <Text style=>OR</Text> */}
+          <View style={styles.orborder}>
+            <View style={styles.leftborder}></View>
+            <Text style={styles.ortext}>OR</Text>
+            <View style={styles.rightborder}></View>
+          </View>
+          <View style={styles.signupcontainer}>
+            <Text
+              style={{
+                color: 'grey',
+                fontSize: SIZES.hp('2%'),
+              }}>
+              Don't have an account?
+              <TouchableOpacity>
+                <Text
+                  style={{
+                    color: '#3797EF',
+                    fontSize: SIZES.hp('2%'),
+                    marginLeft: 5,
+                  }}>
+                  Sign up.
+                </Text>
+              </TouchableOpacity>
+            </Text>
+          </View>
         </View>
         <View style={styles.bottomcontianer}></View>
+        <Text
+          style={{
+            color: 'grey',
+            alignSelf: 'center',
+            marginTop: 35,
+          }}>
+          Instagram from Facebook
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -78,8 +111,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     height: SIZES.hp('100%'),
     width: SIZES.wp('100%'),
+    paddingHorizontal: 10,
   },
-  topcontianer: {},
+  topcontianer: {
+    marginVertical: SIZES.hp('14%'),
+  },
   instagramlogo: {
     alignItems: 'center',
   },
@@ -116,5 +152,35 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: SIZES.hp('4%'),
   },
-  bottomcontianer: {},
+  ortext: {
+    color: 'white',
+    marginHorizontal: SIZES.wp('6%'),
+    fontSize: SIZES.hp('2%'),
+  },
+  orborder: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: SIZES.hp('5%'),
+  },
+  rightborder: {
+    height: 0.2,
+    borderRightWidth: SIZES.wp('40%'),
+    borderRightColor: '#FFFFFF',
+    opacity: 0.3,
+  },
+  leftborder: {
+    height: 0.2,
+    borderLeftColor: '#FFFFFF',
+    borderLeftWidth: SIZES.wp('40%'),
+    opacity: 0.3,
+  },
+  signupcontainer: {
+    alignItems: 'center',
+  },
+  bottomcontianer: {
+    borderTopWidth: 1,
+    borderColor: '#FFFFFF',
+    opacity: 0.1,
+  },
 });
