@@ -1,12 +1,14 @@
-import React from "react";
-import { View} from "react-native";
-import Login from "./src/screens/auth/Login";
+import React from 'react';
+import {View} from 'react-native';
+import Login from './src/screens/auth/Login';
+import ProfileLogin from './src/screens/auth/ProfileLogin';
 
-const App =()=>{
-  return(
+const App = () => {
+  return (
     <View>
-      <Login/>
+      {/* <ProfileLogin/> */}
+      <Login />
     </View>
-  )
-}
-export default App
+  );
+};
+export default App;

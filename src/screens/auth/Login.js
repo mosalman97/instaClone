@@ -1,48 +1,73 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   View,
   StyleSheet,
-  Text,
   Image,
+  TextInput,
   TouchableOpacity,
+  Text,
 } from 'react-native';
-
-//Packages
 
 //Constants
 import {SIZES} from '../../Constants';
 
 export default function Login() {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.topcontainer}>
+        <View style={styles.topcontianer}>
           <View style={styles.instagramlogo}>
             <Image
               source={require('../../assets/images/Logo.png')}
               alt="Icon"
             />
           </View>
-          <View style={styles.profile}>
-            <Image source={require('../../assets/images/Profile.png')} />
+          <View style={styles.inputsection}>
+            <TextInput
+              placeholder="Username"
+              onChange={userName => setUserName(userName)}
+              value={userName}
+              style={styles.input}
+              placeholderTextColor="#8b8b8b"
+            />
+            <TextInput
+              placeholder="Password"
+              onChange={password => setPassword(password)}
+              value={password}
+              style={styles.input}
+              placeholderTextColor="#8b8b8b"
+            />
           </View>
-          <Text style={styles.profilename}>Jack Trail</Text>
-          <TouchableOpacity style={styles.loginbutton}>
-            <Text style={styles.logintext}>Log in</Text>
-          </TouchableOpacity>
-          <Text style={styles.switchtext}>Switch accounts</Text>
-        </View>
-        <View style={styles.bottomcontainer}>
-          <View style={styles.signupcontainer}>
-            <Text style={{color: 'grey'}}>
-              Don't have an account?
-              <TouchableOpacity>
-                <Text style={{color: 'white'}}>Sign up.</Text>
-              </TouchableOpacity>
+          <TouchableOpacity style={{marginBottom: SIZES.hp('4%')}}>
+            <Text
+              style={{
+                color: '#3797EF',
+                alignSelf: 'flex-end',
+                marginRight: 10,
+              }}>
+              Forgot password?
             </Text>
+          </TouchableOpacity>
+          <View style={{alignSelf: 'center'}}>
+            <TouchableOpacity style={styles.loginbutton}>
+              <Text style={styles.logintext}>Log in</Text>
+            </TouchableOpacity>
           </View>
+          <View style={styles.facebook}>
+            <Image source={require('../../assets/images/fb.png')} />
+            <TouchableOpacity style={{marginLeft: 12}}>
+              <Text style={{color: '#3797EF', fontSize: SIZES.wp('4%')}}>
+                Log in with Facebook
+              </Text>
+            </TouchableOpacity>
+          </View>
+          {/* <Text style=>OR</Text> */}
         </View>
+        <View style={styles.bottomcontianer}></View>
       </View>
     </SafeAreaView>
   );
@@ -54,38 +79,42 @@ const styles = StyleSheet.create({
     height: SIZES.hp('100%'),
     width: SIZES.wp('100%'),
   },
-  topcontainer: {
+  topcontianer: {},
+  instagramlogo: {
     alignItems: 'center',
-    // marginVertical: 150,
   },
-  instagramlogo: {},
-  profile: {},
-  profilename: {
-    color: 'white',
-    fontSize: SIZES.hp('2%'),
+  inputsection: {
+    alignItems: 'center',
+  },
+  input: {
+    backgroundColor: '#121212',
+    width: SIZES.wp('95%'),
+    height: SIZES.hp('6%'),
+    borderRadius: 5,
+    paddingLeft: 15,
+    color: '#ffff',
+    marginBottom: SIZES.hp('1.5%'),
   },
   loginbutton: {
     backgroundColor: 'dodgerblue',
-    width: SIZES.wp('90%'),
+    opacity: 0.5,
+    width: SIZES.wp('95%'),
     height: SIZES.hp('6%'),
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: SIZES.hp('4%'),
   },
   logintext: {
     color: 'white',
-    fontWeight: 'bold',
+    fontWeight: '700',
     fontSize: SIZES.wp('5%'),
   },
-  bottomcontainer: {
-    borderTopWidth: 1,
-    borderColor: '#FFFFFF',
-    // flex: 1,
-  },
-  switchtext: {
-    color: 'dodgerblue',
-  },
-  signupcontainer: {
+  facebook: {
+    flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'center',
+    marginBottom: SIZES.hp('4%'),
   },
+  bottomcontianer: {},
 });
